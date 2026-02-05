@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "SIDSA - Purchase Delay Sync",
+    "version": "15.0.1.0.0",
+    "category": "Purchases",
+    "summary": "Calculo de retraso por linea de compra y sincronizacion a venta.",
+    "author": "SIDSA / Custom",
+    "license": "LGPL-3",
+    "post_init_hook": "post_init_fill_sid_has_po_delay",
+    "depends": [
+        "purchase",
+        "sid_purchase_core",
+        "sid_sale_line_custom_fields",
+        "oct_fecha_contrato_compras"
+    ],
+    "data": [],
+    "installable": True,
+    "application": False,
+}
