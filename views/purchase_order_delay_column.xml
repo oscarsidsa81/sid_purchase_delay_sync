@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Purchase Order: columna de retraso en líneas (sid_po_line_delay) -->
+    <record id="view_purchase_order_form_inherit_sid_po_line_delay" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.sid_po_line_delay</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+                <field name="sid_po_line_delay" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

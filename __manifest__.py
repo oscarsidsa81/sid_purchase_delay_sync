@@ -13,7 +13,9 @@
         "sid_sale_line_custom_fields",
         "oct_fecha_contrato_compras"
     ],
-    "data": [],
+    "data": [
+        "views/purchase_order_delay_column.xml",
+    ],
     "installable": True,
     "application": False,
 }
