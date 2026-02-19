@@ -16,6 +16,11 @@
     "data": [
         "views/purchase_order_delay_column.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "sid_purchase_delay_sync/static/src/scss/purchase_delay.scss",
+        ],
+    },
     "installable": True,
     "application": False,
 }

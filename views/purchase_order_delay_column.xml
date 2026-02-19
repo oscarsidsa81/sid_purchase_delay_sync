@@ -6,8 +6,15 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="decoration-danger">sid_po_line_delay == 'more_del'</attribute>
+                <attribute name="decoration-warning">sid_po_line_delay in ('4_week_del', '2_week_del')</attribute>
+                <attribute name="decoration-info">sid_po_line_delay == '1_week_del'</attribute>
+                <attribute name="decoration-primary">sid_po_line_delay == '2_days'</attribute>
+                <attribute name="decoration-success">sid_po_line_delay in ('7_days', '14_days', '30_days', 'sin_ret')</attribute>
+            </xpath>
             <xpath expr="//field[@name='order_line']/tree" position="inside">
-                <field name="sid_po_line_delay" optional="show"/>
+                <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
             </xpath>
         </field>
     </record>

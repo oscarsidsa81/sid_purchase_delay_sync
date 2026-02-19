@@ -20,3 +20,14 @@ en instalaciones/migraciones.
 - `sid_purchase_core` (define `pending_line` y campos base)
 - `sid_sale_line_custom_fields` (flag en venta)
 - `oct_fecha_contrato_compras`
+
+
+## Visualizacion de retraso en compras
+La columna `sid_po_line_delay` en lineas de compra aplica color al fondo de toda la fila y mantiene un `badge` con color fuerte para reforzar la severidad:
+- `Retraso + de un mes`: rojo intenso.
+- `Retraso 4 semanas` y `Retraso 1-2 semanas`: naranja.
+- `Retraso 1 semana`: azul petroleo.
+- `Quedan 2 dias`: gris pizarra.
+- `Quedan 7/14/30 dias` y `+30 dias`: verde.
+
+Los estilos viven en `static/src/scss/purchase_delay.scss` y se cargan en `web.assets_backend`.
