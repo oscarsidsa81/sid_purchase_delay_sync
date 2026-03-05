@@ -15,6 +15,7 @@
     ],
     "data": [
         "views/purchase_order_delay_column.xml",
+        "views/form_order_line_tree_decoration.xml",
     ],
     "assets": {
         "web.assets_backend": [
