@@ -12,10 +12,11 @@
                 <field name="pending_line" optional="show"/>
                 <field name="sid_po_line_delay" widget="badge" optional="show"/>
                 <field name="contract_date" optional="show"/>
-                <field name="estimated_date" optional="show"/>
+                <field name="estimated_date" optional="show" readonly="0"/>
             </xpath>
             <!-- Clase propia para acotar CSS + decorations -->
             <xpath expr="//tree" position="attributes">
+                <attribute name="multi-edit">1</attribute>
                 <attribute name="class">decorated-po-lines</attribute>
                 <attribute name="decoration-info">
                     sid_po_line_delay == '1_week_del'
