@@ -1,51 +1,58 @@
-.o_purchase_order {
-    .o_list_view {
-        tr.text-danger > td:not(.o_list_record_selector) {
-            background-color: #fef3f2;
-        }
+.o_purchase_order .o_list_view,
+.o_list_view.decorated-po-lines {
+    tr.text-danger > td:not(.o_list_record_selector) {
+        background-color: #fef3f2;
+    }
 
-        tr.text-warning > td:not(.o_list_record_selector) {
-            background-color: #fffaeb;
-        }
+    tr.text-warning > td:not(.o_list_record_selector) {
+        background-color: #fffaeb;
+    }
 
-        tr.text-info > td:not(.o_list_record_selector) {
-            background-color: #ecfdff;
-        }
+    tr.text-info > td:not(.o_list_record_selector) {
+        background-color: #ecfdff;
+    }
 
-        tr.text-primary > td:not(.o_list_record_selector) {
-            background-color: #f2f4f7;
-        }
+    tr.text-primary > td:not(.o_list_record_selector) {
+        background-color: #f2f4f7;
+    }
 
-        tr.text-success > td:not(.o_list_record_selector) {
-            background-color: #ecfdf3;
-        }
+    tr.text-success > td:not(.o_list_record_selector) {
+        background-color: #ecfdf3;
+    }
 
-        td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            border: 0;
-            color: #fff;
-            font-weight: 600;
-            min-width: 9.5rem;
-            justify-content: center;
-        }
+    tr.text-muted > td:not(.o_list_record_selector) {
+        background-color: #f8f9fc;
+    }
 
-        tr.text-danger td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            background-color: #b42318;
-        }
+    td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        border: 0;
+        color: #fff;
+        font-weight: 600;
+        min-width: 9.5rem;
+        justify-content: center;
+    }
 
-        tr.text-warning td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            background-color: #dc6803;
-        }
+    tr.text-danger td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #b42318;
+    }
 
-        tr.text-info td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            background-color: #0e7490;
-        }
+    tr.text-warning td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #dc6803;
+    }
 
-        tr.text-primary td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            background-color: #475467;
-        }
+    tr.text-info td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #0e7490;
+    }
 
-        tr.text-success td.o_data_cell[data-name="sid_po_line_delay"] .badge {
-            background-color: #027a48;
-        }
+    tr.text-primary td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #475467;
+    }
+
+    tr.text-success td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #027a48;
+    }
+
+    tr.text-muted td.o_data_cell[data-name="sid_po_line_delay"] .badge {
+        background-color: #667085;
     }
 }

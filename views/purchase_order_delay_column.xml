@@ -10,14 +10,13 @@
             <!-- Asegura que el campo esté presente en el tree -->
             <xpath expr="//field[@name='order_id']" position="after">
                 <field name="pending_line" optional="show"/>
-                <field name="sid_po_line_delay" optional="show"/>
+                <field name="sid_po_line_delay" widget="badge" optional="show"/>
             </xpath>
             <!-- Clase propia para acotar CSS + decorations -->
             <xpath expr="//tree" position="attributes">
                 <attribute name="class">decorated-po-lines</attribute>
-                <!-- Odoo 15: estas decorations añaden clases decoration-* al <tr> -->
-                <attribute name="decoration-muted">
-                    sid_po_line_delay in ('1_week_del')
+                <attribute name="decoration-info">
+                    sid_po_line_delay == '1_week_del'
                 </attribute>
                 <attribute name="decoration-warning">
                     sid_po_line_delay == '2_week_del'
