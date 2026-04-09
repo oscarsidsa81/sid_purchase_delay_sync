@@ -17,6 +17,9 @@
                     </attribute>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree" position="inside">
+                                <!-- Añadir columnas a la lista de líneas dentro del pedido -->
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+                    <field name="pending_line" optional="show"/>
                     <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
                 </xpath>
             </field>
@@ -32,6 +35,7 @@
                 <search>
                     <searchpanel>
                         <field name="sid_po_line_delay" enable_counters="1" select="multi" default_order="id asc"/>
+                        <field name="pending_line" enable_counters="1"/>
                     </searchpanel>
                 </search>
 

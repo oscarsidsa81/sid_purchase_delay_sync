@@ -15,6 +15,17 @@ class SaleOrderLine(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
 
+    pending_line = fields.Selection(
+        selection=[
+            ("true", "Si"),
+            ("false", "No"),
+        ],
+        string="Pendiente",
+        compute="_compute_pending_line",
+        store=True,
+        readonly=True,
+    )
+
     sid_po_line_delay = fields.Selection(
         selection=[
             ("1_week_del", "Retraso 1 semana"),
@@ -32,6 +43,13 @@ class PurchaseOrderLine(models.Model):
         store=True,
         readonly=True,
     )
+
+    @api.depends("product_qty", "qty_received")
+    def _compute_pending_line(self):
+        for line in self:
+            product_qty = round(line.product_qty or 0.0, 2)
+            qty_received = round(line.qty_received or 0.0, 2)
+            line.pending_line = "true" if product_qty > qty_received else "false"
 
     @api.depends("contract_date", "estimated_date", "pending_line")
     def _compute_sid_po_line_delay(self):

@@ -9,13 +9,12 @@
     "post_init_hook": "post_init_fill_sid_has_po_delay",
     "depends": [
         "purchase",
-        "sid_purchase_core",
-        "sid_sale_line_custom_fields",
         "oct_fecha_contrato_compras"
     ],
     "data": [
         "views/purchase_order_delay_column.xml",
         "views/form_order_line_tree_decoration.xml",
+        "views/sale_order_form_and_tree_boolean.xml",
     ],
     "assets": {
         "web.assets_backend": [

@@ -17,7 +17,6 @@ Incluye `post_init_hook` (`post_init_fill_sid_has_po_delay`) para rellenar:
 en instalaciones/migraciones.
 
 ## Dependencias
-- `sid_purchase_core` (define `pending_line` y campos base)
 - `sid_sale_line_custom_fields` (flag en venta)
 - `oct_fecha_contrato_compras`
 

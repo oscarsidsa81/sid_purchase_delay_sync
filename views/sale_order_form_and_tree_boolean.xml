@@ -1,0 +1,29 @@
+<odoo>
+
+    <record id="view_sale_order_line_tree_ov_delay_sync" model="ir.ui.view">
+        <field name="name">sid.sale.order.line.tree.ov.delay.sync</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='order_id']" position="before">
+                <field name="sid_has_po_delay" optional="show"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_sale_order_line_tree_search_ov_delay_sync" model="ir.ui.view">
+        <field name="name">sid.sale.order.line.tree.search.ov.delay.sync</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='order_id']" position="before">
+                <field name="sid_has_po_delay" optional="show"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
