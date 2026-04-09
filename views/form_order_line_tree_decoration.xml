@@ -17,11 +17,9 @@
                     </attribute>
                 </xpath>
 
-                <xpath expr="//field[@name='order_line']/tree" position="inside">
-                    <xpath expr="//field[@name='product_id']" position="before">
-                        <field name="pending_line" optional="show"/>
-                        <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
-                    </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                    <field name="pending_line" optional="show"/>
+                    <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
                 </xpath>
             </field>
         </record>
@@ -33,9 +31,11 @@
             <field name="priority">16</field>
             <field name="arch" type="xml">
 
-                <xpath expr="//search/searchpanel" position="inside">
-                    <field name="sid_po_line_delay" enable_counters="1" select="multi" default_order="id asc"/>
-                    <field name="pending_line" enable_counters="1"/>
+                <xpath expr="//search" position="inside">
+                    <searchpanel>
+                        <field name="sid_po_line_delay" enable_counters="1" select="multi" default_order="id asc"/>
+                        <field name="pending_line" enable_counters="1"/>
+                    </searchpanel>
                 </xpath>
 
             </field>
