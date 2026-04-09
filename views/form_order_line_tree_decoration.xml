@@ -20,6 +20,8 @@
                 <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
                     <field name="pending_line" optional="show"/>
                     <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
+                    <field name="contract_date" optional="show"/>
+                    <field name="estimated_date" optional="show"/>
                 </xpath>
             </field>
         </record>
