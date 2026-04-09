@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
+        <!-- Purchase Order: columna de retraso en líneas (sid_po_line_delay) -->
+        <record id="view_purchase_order_form_inherit_sid_po_line_delay" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit.sid_po_line_delay</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <attribute name="decoration-danger">sid_po_line_delay == 'more_del'</attribute>
+                    <attribute name="decoration-warning">sid_po_line_delay in ('4_week_del', '2_week_del')</attribute>
+                    <attribute name="decoration-info">sid_po_line_delay == '1_week_del'</attribute>
+                    <attribute name="decoration-primary">sid_po_line_delay == '2_days'</attribute>
+                    <attribute name="decoration-success">sid_po_line_delay in ('7_days', '14_days', '30_days',
+                        'sin_ret')
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree" position="inside">
+                    <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
+                </xpath>
+            </field>
+        </record>
 
     </data>
 </odoo>

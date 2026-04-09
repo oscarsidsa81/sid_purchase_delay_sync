@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Purchase Order: columna de retraso en líneas (sid_po_line_delay) -->
-    <record id="view_purchase_order_form_inherit_sid_po_line_delay" model="ir.ui.view">
-        <field name="name">purchase.order.form.inherit.sid_po_line_delay</field>
-        <field name="model">purchase.order</field>
-        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+
+    <record id="view_purchase_order_line_tree_delay_custom" model="ir.ui.view">
+        <field name="name">OV - Purchase Order Line Delay (decorations)</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="priority">16010</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/tree" position="attributes">
-                <attribute name="decoration-danger">sid_po_line_delay == 'more_del'</attribute>
-                <attribute name="decoration-warning">sid_po_line_delay in ('4_week_del', '2_week_del')</attribute>
-                <attribute name="decoration-info">sid_po_line_delay == '1_week_del'</attribute>
-                <attribute name="decoration-primary">sid_po_line_delay == '2_days'</attribute>
-                <attribute name="decoration-success">sid_po_line_delay in ('7_days', '14_days', '30_days', 'sin_ret')</attribute>
+
+            <!-- Clase propia para acotar CSS + decorations -->
+            <xpath expr="//tree" position="attributes">
+                <attribute name="class">decorated-po-lines</attribute>
+
+                <!-- Odoo 15: estas decorations añaden clases decoration-* al <tr> -->
+                <attribute name="decoration-muted">
+                    sid_po_line_delay in ('1_week_del')
+                </attribute>
+                <attribute name="decoration-warning">
+                    sid_po_line_delay == '2_week_del'
+                </attribute>
+                <attribute name="decoration-danger">
+                    sid_po_line_delay in ('4_week_del','more_del')
+                </attribute>
             </xpath>
-            <xpath expr="//field[@name='order_line']/tree" position="inside">
-                <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
+
+            <!-- Asegura que el campo esté presente en el tree -->
+            <xpath expr="//field[@name='order_id']" position="after">
+                <field name="sid_po_line_delay" optional="show"/>
+            </xpath>
+
+            <!-- Negrita en el valor del campo (si tu tema lo respeta) -->
+            <xpath expr="//field[@name='sid_po_line_delay']" position="attributes">
+                <attribute name="decoration-bf">
+                    sid_po_line_delay in ('1_week_del','2_week_del','4_week_del','more_del')
+                </attribute>
             </xpath>
         </field>
     </record>
+
 </odoo>

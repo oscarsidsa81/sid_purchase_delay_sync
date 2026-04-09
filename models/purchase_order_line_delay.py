@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models
 
+class SaleOrderLine(models.Model):
+    _inherit = "sale.order.line"
+
+    sid_has_po_delay = fields.Boolean(
+        string="Retraso en compra",
+        store=True,
+        index=True,
+        readonly=False,
+        # si quieres permitir override manual, si no: readonly=True
+    )
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
