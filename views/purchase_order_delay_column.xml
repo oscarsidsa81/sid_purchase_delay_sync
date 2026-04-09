@@ -27,6 +27,8 @@
                 <attribute name="decoration-danger">
                     sid_po_line_delay in ('4_week_del','more_del')
                 </attribute>
+                <attribute name="decoration-success">sid_po_line_delay in ('7_days', '14_days', '30_days', 'sin_ret')
+                </attribute>
             </xpath>
             <!-- Negrita en el valor del campo (si tu tema lo respeta) -->
             <xpath expr="//field[@name='sid_po_line_delay']" position="attributes">
