@@ -16,7 +16,8 @@
     <record id="view_sale_order_line_tree_search_ov_delay_sync" model="ir.ui.view">
         <field name="name">sid.sale.order.line.tree.search.ov.delay.sync</field>
         <field name="model">sale.order.line</field>
-        <field name="inherit_id" ref="sale.view_order_line_tree"/>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='order_id']" position="before">

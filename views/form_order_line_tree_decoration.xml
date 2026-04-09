@@ -3,7 +3,7 @@
     <data>
         <!-- Purchase Order: columna de retraso en líneas (sid_po_line_delay) -->
         <record id="view_purchase_order_form_sid_po_line_delay" model="ir.ui.view">
-            <field name="name">purchase.order.form.sid_po_line_delay</field>
+            <field name="name">purchase.order.form.sid.po.line.delay</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
@@ -18,8 +18,10 @@
                 </xpath>
 
                 <xpath expr="//field[@name='order_line']/tree" position="inside">
-                    <field name="pending_line" optional="show"/>
-                    <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
+                    <xpath expr="//field[@name='product_id']" position="before">
+                        <field name="pending_line" optional="show"/>
+                        <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
+                    </xpath>
                 </xpath>
             </field>
         </record>
@@ -31,12 +33,10 @@
             <field name="priority">16</field>
             <field name="arch" type="xml">
 
-                <search>
-                    <searchpanel>
-                        <field name="sid_po_line_delay" enable_counters="1" select="multi" default_order="id asc"/>
-                        <field name="pending_line" enable_counters="1"/>
-                    </searchpanel>
-                </search>
+                <xpath expr="//search/searchpanel" position="inside">
+                    <field name="sid_po_line_delay" enable_counters="1" select="multi" default_order="id asc"/>
+                    <field name="pending_line" enable_counters="1"/>
+                </xpath>
 
             </field>
         </record>
