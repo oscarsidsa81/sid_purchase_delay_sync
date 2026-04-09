@@ -16,9 +16,8 @@
                         'sin_ret')
                     </attribute>
                 </xpath>
+
                 <xpath expr="//field[@name='order_line']/tree" position="inside">
-                                <!-- Añadir columnas a la lista de líneas dentro del pedido -->
-            <xpath expr="//field[@name='order_line']/tree" position="inside">
                     <field name="pending_line" optional="show"/>
                     <field name="sid_po_line_delay" widget="badge" class="sid_po_delay_badge" optional="show"/>
                 </xpath>
