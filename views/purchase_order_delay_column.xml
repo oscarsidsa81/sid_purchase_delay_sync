@@ -11,6 +11,8 @@
             <xpath expr="//field[@name='order_id']" position="after">
                 <field name="pending_line" optional="show"/>
                 <field name="sid_po_line_delay" widget="badge" optional="show"/>
+                <field name="contract_date" optional="show"/>
+                <field name="estimated_date" optional="show"/>
             </xpath>
             <!-- Clase propia para acotar CSS + decorations -->
             <xpath expr="//tree" position="attributes">
