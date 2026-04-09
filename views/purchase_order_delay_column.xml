@@ -16,7 +16,7 @@
             </xpath>
             <!-- Clase propia para acotar CSS + decorations -->
             <xpath expr="//tree" position="attributes">
-                <attribute name="multi-edit">1</attribute>
+                <attribute name="multi_edit">1</attribute>
                 <attribute name="class">decorated-po-lines</attribute>
                 <attribute name="decoration-info">
                     sid_po_line_delay == '1_week_del'
