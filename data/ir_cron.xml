@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_sid_refresh_purchase_delay_status" model="ir.cron">
+        <field name="name">SID - Refresh purchase delay status</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_refresh_delay_status()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

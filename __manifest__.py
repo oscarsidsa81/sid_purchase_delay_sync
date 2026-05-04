@@ -8,10 +8,12 @@
     "license": "LGPL-3",
     "post_init_hook": "post_init_fill_sid_has_po_delay",
     "depends": [
+        "sale",
         "purchase",
         "oct_fecha_contrato_compras"
     ],
     "data": [
+        "data/ir_cron.xml",
         "views/purchase_order_delay_column.xml",
         "views/form_order_line_tree_decoration.xml",
         "views/sale_order_form_and_tree_boolean.xml",
