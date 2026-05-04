@@ -138,3 +138,21 @@ class PurchaseOrderLine(models.Model):
 
         for sale_line_id, flag in updates.items():
             SaleLine.browse(sale_line_id).write({"sid_has_po_delay": flag})
+
+    @api.model
+    def cron_refresh_delay_status(self):
+        domain = [
+            ("pending_line", "=", "true"),
+            "|",
+            ("contract_date", "!=", False),
+            ("estimated_date", "!=", False),
+        ]
+        pending_lines = self.search(domain)
+        if not pending_lines:
+            return True
+
+        before_map = {line.id: line.sid_po_line_delay for line in pending_lines}
+        pending_lines._compute_pending_line()
+        pending_lines._compute_sid_po_line_delay()
+        pending_lines._sync_sale_delay_flag(before_map=before_map)
+        return True
